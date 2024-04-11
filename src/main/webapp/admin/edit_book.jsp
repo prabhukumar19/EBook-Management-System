@@ -22,9 +22,13 @@
 	<%@include file="navbar.jsp"%>
 	<div class="container class p-2 pb-3">
 		<div class="row ">
+			<c:if test="${empty user }">
+				<c:redirect url="../login.jsp"></c:redirect>
+			</c:if>
 			<div class="col-md-4 offset-md-4">
 				<div class="card">
-					<div class=" container d-flex align-items-center justify-content-between mt-2">
+					<div
+						class=" container d-flex align-items-center justify-content-between mt-2">
 						<h5 class="">Edit Book</h5>
 						<a href="show_books.jsp">
 							<button class="btn btn-outline-primary btn-sm rounded-pill">Back</button>

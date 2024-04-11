@@ -26,10 +26,14 @@ a:hover {
 </style>
 <body class="class">
 	<%@include file="navbar.jsp"%>
+
 	<c:if test="${not empty user }">
 		<h3 class="text-center text-xl p-2 m-3">Welcome, ${user.name }</h3>
 	</c:if>
 
+	<c:if test="${empty user }">
+		<c:redirect url="../login.jsp"></c:redirect>
+	</c:if>
 	<div class="container class">
 		<div class="row d-flex justify-content-center align-items-center p-5">
 			<div class="col-md-2">
@@ -64,7 +68,7 @@ a:hover {
 			</div>
 			<div class="col-md-2">
 
-				<a href="#">
+				<a href="../logout">
 					<div class="card">
 						<div class="card-body text-center ">
 							<i class="fa-solid fa-sign-out-alt fa-3x text-primary mb-1"></i>

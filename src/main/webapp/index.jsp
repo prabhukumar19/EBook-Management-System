@@ -17,7 +17,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-</style> 
+</style>
 <body>
 	<%@include file="components/navbar.jsp"%>
 	<div class="contaner-fluid background-image">
@@ -25,7 +25,7 @@
 			<i class="fa-solid fa-book"></i> E-Book Management System
 		</h2>
 	</div>
-	
+
 	<%@include file="components/recentbook.jsp"%>
 	<%@include file="components/newbook.jsp"%>
 	<%@include file="components/oldbook.jsp"%>

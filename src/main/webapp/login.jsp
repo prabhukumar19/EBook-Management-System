@@ -25,6 +25,10 @@
 						<p class="text-center text-danger">${loginFailed}</p>
 						<c:remove var="loginFailed" scope="session" />
 					</c:if>
+					<c:if test="${not empty success_message}">
+						<p class="text-center text-success">${success_message}</p>
+						<c:remove var="success_message" scope="session" />
+					</c:if>
 					<div class="card-body">
 						<form action="login" method="post">
 							<div class="form-group mb-2">

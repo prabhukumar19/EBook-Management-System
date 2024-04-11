@@ -22,6 +22,10 @@
 	<%@include file="navbar.jsp"%>
 	<div class="container-fluid class p-2">
 		<div class="row">
+			<c:if test="${empty user }">
+				<c:redirect url="../login.jsp"></c:redirect>
+			</c:if>
+
 			<c:if test="${not empty user }">
 				<h4 class="text-center text-xl p-2 mt-2">Welcome, ${user.name }</h4>
 			</c:if>

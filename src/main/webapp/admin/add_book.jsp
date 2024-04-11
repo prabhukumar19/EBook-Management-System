@@ -23,13 +23,17 @@
 				<div class="card">
 					<div class="card-body">
 						<h6 class="text-center">Add Book</h6>
+						<c:if test="${empty user }">
+							<c:redirect url="../login.jsp"></c:redirect>
+						</c:if>
+
 						<c:if test="${not empty success_message}">
-						<p class="text-center text-success">${success_message}</p>
-						<c:remove var="success_message" scope="session"/>
+							<p class="text-center text-success">${success_message}</p>
+							<c:remove var="success_message" scope="session" />
 						</c:if>
 						<c:if test="${not empty failed_message}">
-						<p class="text-center text-danger">${failed_message}</p>
-						<c:remove var="failed_message" scope="session"/>
+							<p class="text-center text-danger">${failed_message}</p>
+							<c:remove var="failed_message" scope="session" />
 						</c:if>
 						<form action="../add" method="post" enctype="multipart/form-data">
 							<div class="mb-3">

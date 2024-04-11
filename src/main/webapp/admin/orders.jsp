@@ -14,6 +14,9 @@
 <%@include file="styles.jsp"%>
 <body>
 	<%@include file="navbar.jsp"%>
+	<c:if test="${empty user }">
+		<c:redirect url="../login.jsp"></c:redirect>
+	</c:if>
 	<div class="container-fluid class p-2">
 		<div class="row">
 			<table class="table table-striped text-center">

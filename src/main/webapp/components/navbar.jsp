@@ -44,13 +44,13 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="index.jsp"><i
 							class="fa-solid fa-house"></i> Home</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#recentBook"><i
+					<li class="nav-item"><a class="nav-link active" href="all_recent_books.jsp"><i
 							class="fa-solid fa-book"></i> Recent Book</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#"><i
+					<li class="nav-item"><a class="nav-link active" href="all_new_books.jsp"><i
 							class="fa-solid fa-book-open"></i> New Book</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#"><i
+					<li class="nav-item"><a class="nav-link active" href="all_old_books.jsp"><i
 							class="fa-solid fa-book"></i> Old Book</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#"><i
+					<li class="nav-item"><a class="nav-link active" href="about-us.jsp"><i
 							class="fa-solid fa-user"></i> About us</a></li>
 
 				</ul>

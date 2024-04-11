@@ -1,5 +1,7 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,15 +29,31 @@
 					</button>
 				</form>
 			</div>
-			
+
 			<div class="col-md-3 text-center">
-				<a href="../login.jsp" class="btn btn-success rounded-pill"><i
-					class="fa-solid fa-arrow-right-to-bracket"></i> Login</a> <a
-					href="../register.jsp" class="btn btn-primary rounded-pill"><i
-					class="fa-solid fa-user-plus"></i> Register</a>
+				<c:if test="${not empty user}">
+					<a href="#" class="btn btn-secondary rounded-pill">
+						<i class="fa-solid fa-user" style="font-size: 13px;"></i>
+						${user.name}
+					</a>
+					<a href="../logout" class="btn btn-primary rounded-pill"> <i
+						class="fa-solid fa-sign-out-alt" style="font-size: 15px;"></i>
+						Logout
+					</a>
+				</c:if>
+				<c:if test="${empty user}">
+					<a href="../login.jsp" class="btn btn-success rounded-pill"> <i
+						class="fa-solid fa-user"></i> Login
+					</a>
+					<a href="../register.jsp" class="btn btn-primary rounded-pill">
+						<i class="fa-solid fa-user-plus"></i> Register
+					</a>
+				</c:if>
+
 			</div>
 		</div>
 	</div>
+
 	<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">

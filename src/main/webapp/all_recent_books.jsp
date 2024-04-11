@@ -1,31 +1,35 @@
+<%@page import="com.DB.DBConnection"%>
 <%@page import="com.entity.Book"%>
 <%@page import="java.util.List"%>
-<%@page import="com.DB.DBConnection"%>
 <%@page import="com.DAO.BookDAOImpl"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Recent Book</title>
+<title>All_recent_book</title>
 </head>
+<%@include file="assets/styles.jsp"%>
 <style>
-.card:hover {
-	background: #DDDDDD;
-	cursor: pointer
+.background-image {
+	background: url("assets/images/background.jpg");
+	height: 50vh;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 </style>
 <body>
-	<div class="container">
+	<%@include file="components/navbar.jsp"%>
+	<div class="container mb-3">
 		<h3 class="text-center m-3">
 			<i class="fa-solid fa-book"></i> Recent Books
 		</h3>
 		<div class="row">
 			<%
 			BookDAOImpl dao = new BookDAOImpl(DBConnection.getConnection());
-			List<Book> recentBooks = dao.getRecentBooks();
+			List<Book> recentBooks = dao.getAllRecentBooks();
 			for (Book book : recentBooks) {
 			%>
 			<div class="col-md-3">
@@ -57,12 +61,12 @@
 			<%
 			}
 			%>
-			<div class="text-center mt-3">
-				<a href="all_recent_books.jsp"><button
-						class="btn btn-outline-danger btn-sm rounded-pill">View
-						All</button></a>
-			</div>
+			<!-- <div class="text-center mt-3">
+				<a href="all_recent_books.jsp"><button class="btn btn-outline-danger btn-sm rounded-pill">View
+					All</button></a>
+			</div> -->
 		</div>
 	</div>
+	<%@include file="components/footer.jsp"%>
 </body>
 </html>
