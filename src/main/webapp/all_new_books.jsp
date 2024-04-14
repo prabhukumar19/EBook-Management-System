@@ -1,3 +1,4 @@
+<%@page import="com.entity.User"%>
 <%@page import="com.entity.Book"%>
 <%@page import="java.util.List"%>
 <%@page import="com.DB.DBConnection"%>
@@ -21,16 +22,20 @@
 }
 </style>
 <body>
+<% 
+User user = (User)session.getAttribute("user"); 
+%>
 	<%@include file="components/navbar.jsp"%>
+	<!-- All New Books -->
 	<div class="container mb-3">
 		<h3 class="text-center m-3">
 			<i class="fa-solid fa-book"></i> New Books
 		</h3>
 		<div class="row">
 			<%
-			BookDAOImpl dao = new BookDAOImpl(DBConnection.getConnection());
-			List<Book> recentBooks = dao.getAllNewBooks();
-			for (Book book : recentBooks) {
+			BookDAOImpl dao=new BookDAOImpl(DBConnection.getConnection());
+			List<Book> AllNewBooks = dao.getAllNewBooks();
+			for (Book book : AllNewBooks) {
 			%>
 			<div class="col-md-3">
 				<div class="card mt-4">
@@ -45,9 +50,25 @@
 							Author:
 							<%=book.getAuthor_name()%></p>
 						<div class="btn-group gap-2">
-							<a class="btn btn-outline-danger btn-sm rounded-pill "
+						<%
+							if (user == null) {
+							%>
+							<a href="login.jsp"
+								class="btn btn-outline-danger btn-sm rounded-pill "
 								style="border-radius: 5px;"><i class="fa-solid fa-cart-plus"></i>
-								Add to Cart</a> <a href="book_details.jsp?id=<%=book.getId() %>"
+								Add to Cart</a>
+
+							<%
+							} else {
+							%>
+							<a href="cart?bookId=<%=book.getId()%>&&userId=<%=user.getId()%>"
+								class="btn btn-outline-danger btn-sm rounded-pill "
+								style="border-radius: 5px;"><i class="fa-solid fa-cart-plus"></i>
+								Add to Cart</a>
+							<%
+							}
+							%>
+							<a href="book_details.jsp?id=<%=book.getId()%>"
 								class="btn btn-outline-success btn-sm rounded-pill"
 								style="border-radius: 5px;"><i class="fa-solid fa-eye"></i>
 								View</a> <a class="btn btn-outline-primary btn-sm rounded-pill"

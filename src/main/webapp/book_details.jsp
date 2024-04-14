@@ -1,3 +1,7 @@
+<%
+User user = (User) session.getAttribute("user");
+%>
+<%@page import="com.entity.User"%>
 <%@page import="com.entity.Book"%>
 <%@page import="java.util.List"%>
 <%@page import="com.DB.DBConnection"%>
@@ -25,6 +29,7 @@
 }
 </style>
 <body>
+
 	<%@include file="components/navbar.jsp"%>
 	<div class="container mt-2">
 		<div class="row">
@@ -40,7 +45,8 @@
 					Book Name :- <span class="text-success"><%=bookDetails.getName()%></span>
 				</p>
 				<p>
-					Price :- <span class="text-success"><i class="fa-solid fa-indian-rupee-sign"></i> <%=bookDetails.getPrice()%></span>
+					Price :- <span class="text-success"><i
+						class="fa-solid fa-indian-rupee-sign"></i> <%=bookDetails.getPrice()%></span>
 				</p>
 				<p>
 					Author name :- <span class="text-success"><%=bookDetails.getAuthor_name()%></span>
@@ -62,7 +68,7 @@
 				<h5 class="text-primary">
 					<i class="fa-solid fa-user"></i> Contact to Seller
 				</h5>
-				<h5 class="text-primary" style="cursor: pointer;" >
+				<h5 class="text-primary" style="cursor: pointer;">
 					<i class="fa-solid fa-envelope"></i> Email :-
 					<%=bookDetails.getUser_email()%></h5>
 				<%
@@ -96,7 +102,9 @@
 				} else {
 				%>
 				<div class="text-center mx-auto">
-					<a href="" class="btn btn-primary btn-sm p-2 rounded-pill"><i
+					<a
+						href="cart?bookId=<%=bookDetails.getId()%>&&userId=<%=user.getId()%>"
+						class="btn btn-primary btn-sm p-2 rounded-pill"><i
 						class="fa fa-cart-plus"></i> Add to Cart</a> <a
 						class="btn btn-danger btn-sm p-2 rounded-pill" href=""><i
 						class="fa-solid fa-indian-rupee-sign"></i> 200</a>

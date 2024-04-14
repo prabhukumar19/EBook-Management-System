@@ -64,6 +64,18 @@
   	<description></description>
   	<servlet-class>com.user.servlets.LogoutServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AddToCartServlet</servlet-name>
+  	<display-name>AddToCartServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlets.AddToCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RemoveCartServlet</servlet-name>
+  	<display-name>RemoveCartServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlets.RemoveCartServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
@@ -103,5 +115,13 @@
   <servlet-mapping>
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddToCartServlet</servlet-name>
+  	<url-pattern>/AddToCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RemoveCartServlet</servlet-name>
+  	<url-pattern>/RemoveCartServlet</url-pattern>
   </servlet-mapping>
 </web-app>

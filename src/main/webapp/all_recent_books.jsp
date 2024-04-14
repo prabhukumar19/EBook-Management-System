@@ -1,9 +1,13 @@
+<%@page import="com.entity.User"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@page import="com.DB.DBConnection"%>
 <%@page import="com.entity.Book"%>
 <%@page import="java.util.List"%>
 <%@page import="com.DAO.BookDAOImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +25,7 @@
 }
 </style>
 <body>
+<% User user =(User)session.getAttribute("user"); %>
 	<%@include file="components/navbar.jsp"%>
 	<div class="container mb-3">
 		<h3 class="text-center m-3">
@@ -45,9 +50,25 @@
 							Author:
 							<%=book.getAuthor_name()%></p>
 						<div class="btn-group gap-2">
-							<a class="btn btn-outline-danger btn-sm rounded-pill "
+						<%
+							if (user == null) {
+							%>
+							<a href="login.jsp"
+								class="btn btn-outline-danger btn-sm rounded-pill "
 								style="border-radius: 5px;"><i class="fa-solid fa-cart-plus"></i>
-								Add to Cart</a> <a href="book_details.jsp?id=<%=book.getId() %>"
+								Add to Cart</a>
+
+							<%
+							} else {
+							%>
+							<a href="cart?bookId=<%=book.getId()%>&&userId=<%=user.getId()%>"
+								class="btn btn-outline-danger btn-sm rounded-pill "
+								style="border-radius: 5px;"><i class="fa-solid fa-cart-plus"></i>
+								Add to Cart</a>
+							<%
+							}
+							%>
+							<a href="book_details.jsp?id=<%=book.getId()%>"
 								class="btn btn-outline-success btn-sm rounded-pill"
 								style="border-radius: 5px;"><i class="fa-solid fa-eye"></i>
 								View</a> <a class="btn btn-outline-primary btn-sm rounded-pill"

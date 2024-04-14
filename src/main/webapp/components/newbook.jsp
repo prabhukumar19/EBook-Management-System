@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Recent Book</title>
+<title>New Book</title>
 </head>
 <body>
 	<div class="container">
